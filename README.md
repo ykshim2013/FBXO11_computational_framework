@@ -12,7 +12,7 @@ Computational framework for assessing *FBXO11* structural destabilization as a b
 
 **Institution:** Korea University Ansan Hospital, Korea University College of Medicine
 
-**Journal:** Human Genetics and Genomics Advances (submitted)
+**Journal:** will be submitted soon
 
 ## 🔬 Overview
 
