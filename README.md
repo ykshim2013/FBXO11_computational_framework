@@ -2,17 +2,21 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Computational framework for assessing *FBXO11* structural destabilization as a binding-independent pathogenic mechanism in neurodevelopmental disorder.
+Computational framework for structural stability analysis in *FBXO11* missense variants: Testing the hypothesis of binding-independent destabilization as a pathogenic mechanism.
 
 ## 📄 Publication
 
-**Title:** Computational Framework for Assessing *FBXO11* Structural Destabilization as a Binding-Independent Pathogenic Mechanism in Neurodevelopmental Disorder
+**Title:** Computational framework for structural stability analysis in FBXO11 missense variants: Testing the hypothesis of binding-independent destabilization as a pathogenic mechanism
 
-**Author:** Youngkyu Shim, M.D.
+**Authors:** Youngkyu Shim¹*, Eungu Kang², Suhyun Kim³⁴
 
-**Institution:** Korea University Ansan Hospital, Korea University College of Medicine
+**Affiliations:**
+1. Division of Pediatric Neurology, Department of Pediatrics, Korea University Ansan Hospital, Korea University College of Medicine, Ansan, Republic of Korea
+2. Division of Medical Genetics, Department of Pediatrics, Korea University Ansan Hospital, Korea University College of Medicine, Ansan, Republic of Korea
+3. Department of Convergence Medicine, College of Medicine, Korea University, Seoul, Republic of Korea
+4. Zebrafish Translational Medical Research Center, Korea University, Ansan, Republic of Korea
 
-**Journal:** will be submitted soon
+**Journal:** PLOS Genetics (submitted)
 
 ## 🔬 Overview
 
@@ -27,10 +31,10 @@ This repository provides **complete computational protocols** and **example scri
 
 ### Dataset Summary
 
-- **Variants analyzed:** 45 (24 pathogenic, 21 benign)
+- **Variants analyzed:** 44 (23 pathogenic, 21 benign)
 - **Structural conformations:** 3 AlphaFold3 seeds per variant
 - **Biological contexts:** 2 (monomer, FBXO11-SKP1 complex)
-- **Total systems:** 270 (45 variants × 3 seeds × 2 contexts)
+- **Total systems:** 264 Rosetta / 270 FoldX (44 variants × 3 seeds × 2 contexts)
 - **MD simulations:** 5 variants × 3 replicates × 20 ns = 300 ns total
 
 ## 📁 Repository Structure
@@ -66,10 +70,14 @@ FBXO11_computational_framework/
 - **AlphaFold3 Server** access (https://alphafoldserver.com)
 
 **System Requirements:**
-- Linux operating system (Ubuntu 22.04 LTS recommended)
-- GPU recommended for MD simulations (NVIDIA with CUDA support)
-- 60+ CPU cores for parallel FoldX/Rosetta analysis
+- macOS or Linux operating system
+- GPU recommended for MD simulations (NVIDIA with CUDA support or Apple Silicon)
+- Multi-core CPU for parallel FoldX/Rosetta analysis
 - ~100 GB storage for complete analysis
+
+**Development Platform:**
+- Apple Mac Studio (macOS; Apple M4 Max, 16 cores, 64 GB RAM)
+- Cloud infrastructure for GPU-accelerated MD simulations
 
 ### Installation
 
@@ -161,26 +169,40 @@ See [`docs/METHODS.md`](docs/METHODS.md) Section 5 for detailed protocol.
 
 | Method | Pathogenic ΔΔG | Benign ΔΔG | p-value | Cohen's d |
 |--------|----------------|------------|---------|-----------|
-| **FoldX** | 2.14 ± 2.95 kcal/mol | 0.82 ± 3.11 kcal/mol | 1.61×10⁻³ | 0.53 (large) |
-| **Rosetta** | 4.23 ± 7.38 kcal/mol | 0.41 ± 6.66 kcal/mol | 7.40×10⁻⁵ | 0.85 (very large) |
+| **FoldX** | 1.86 ± 3.63 kcal/mol (median±IQR) | 0.54 ± 1.76 kcal/mol | 1.85×10⁻³ | 0.50 |
+| **Rosetta** | 6.85 ± 9.28 kcal/mol (mean±SD) | 1.31 ± 2.91 kcal/mol | 2.39×10⁻⁴ | 0.78 |
 
-- **FoldX-Rosetta correlation:** Spearman's ρ = 0.62, Pearson's r = 0.73
-- **Context independence:** No monomer vs complex difference (p = 0.94)
-- **Normal-binding pathogenic subset:** Maintained discrimination despite preserved SKP1 binding
+- **FoldX-Rosetta correlation:** Spearman's ρ = 0.60, Pearson's r = 0.74
+- **Context independence:** No significant monomer vs complex difference (p = 0.94)
+- **Normal-binding pathogenic subset:** 9/10 (90%) exceeded 1.0 kcal/mol threshold by at least one method
+
+### Classification Performance
+
+| Model | AUC (95% CI) | Sensitivity | Specificity |
+|-------|--------------|-------------|-------------|
+| FoldX | 0.68 (0.52–0.82) | - | - |
+| Rosetta | 0.68 (0.53–0.83) | - | - |
+| Combined | 0.69 (0.52–0.84) | 46% | 93% |
+
+**Note:** Modest discriminatory power precludes clinical diagnostic use; framework suitable for mechanistic hypothesis generation.
 
 ### Molecular Dynamics Results
 
 | Metric | Pathogenic | Benign/WT | Interpretation |
 |--------|------------|-----------|----------------|
 | **RMSD (0-20 ns)** | 3.6 ± 1.4 nm | 2.6-2.9 nm | Increased structural deviation |
-| **RMSF (peak regions)** | 1.34-2.18-fold increase | Baseline | Localized flexibility increase |
+| **RMSF (peak regions)** | 1.05-1.20-fold increase | Baseline | Modest flexibility increase |
 | **Discrimination time** | ~5 ns | - | Early temporal differences |
 
-### Patient Variant A486P
+**Important:** 20 ns simulations are exploratory; equilibrium assessment requires 100-300 ns.
 
-- **FoldX ΔΔG:** 7.73 kcal/mol (strongly destabilizing, upper quartile)
-- **Rosetta ΔΔG:** 14.91 kcal/mol (strongly destabilizing, upper quartile)
-- **Clinical correlation:** Severe destabilization consistent with pathogenicity
+### Normal-Binding Pathogenic Variants
+
+Among 10 pathogenic variants with experimentally confirmed normal SKP1 binding:
+- **9/10 (90%)** exceeded 1.0 kcal/mol threshold by at least one method
+- **Mean FoldX ΔΔG:** 1.77 ± 1.15 kcal/mol
+- **Mean Rosetta ΔΔG:** 3.83 ± 4.43 kcal/mol
+- Supports binding-independent destabilization hypothesis
 
 ## 📦 Data Availability
 
@@ -190,13 +212,13 @@ See [`docs/METHODS.md`](docs/METHODS.md) Section 5 for detailed protocol.
 - Variant classification list
 
 ### Manuscript Supplementary Materials
-- **Supplementary Table S1:** Complete FoldX and Rosetta ΔΔG values (all 270 systems)
-- **Supplementary Table S2:** Normal-binding pathogenic variant quantitative data
+- **S1 Table:** AlphaFold3 structural quality metrics
+- **S2 Table:** Complete variant dataset with FoldX and Rosetta ΔΔG values
 
 ### Available Upon Request
 - MD trajectory files (~55 GB total)
 - AlphaFold3 structural models (reproducible via AlphaFold Server)
-- Contact: corresponding author
+- Contact: ykshim2013@gmail.com
 
 ## 🔧 Computational Methods Summary
 
@@ -208,10 +230,11 @@ See [`docs/METHODS.md`](docs/METHODS.md) Section 5 for detailed protocol.
 | **MD Simulation** | GROMACS 2024.4 | NPT, 310 K, 1 bar | 3/variant | Mean ± SD |
 
 ### Statistical Analysis
-- **Variant-level analysis:** Aggregate across 3 structural seeds (n=90 total)
+- **Variant-level analysis:** Aggregate across 3 structural seeds (n=88 variant-context pairs)
 - **FoldX:** Mann-Whitney U test (non-parametric)
 - **Rosetta:** Welch's t-test (parametric)
-- **Effect size:** Cohen's d for magnitude quantification
+- **Effect size:** Cohen's d with 95% CI via bootstrap
+- **ROC analysis:** Combined logistic regression with DeLong's method for CI
 
 ## 📚 Citation
 
@@ -219,10 +242,11 @@ If you use this computational framework, please cite:
 
 ```bibtex
 @article{shim2025fbxo11,
-  title={Computational Framework for Assessing FBXO11 Structural Destabilization
-         as a Binding-Independent Pathogenic Mechanism in Neurodevelopmental Disorder},
-  author={Shim, Youngkyu},
-  journal={Human Genetics and Genomics Advances},
+  title={Computational framework for structural stability analysis in FBXO11
+         missense variants: Testing the hypothesis of binding-independent
+         destabilization as a pathogenic mechanism},
+  author={Shim, Youngkyu and Kang, Eungu and Kim, Suhyun},
+  journal={PLOS Genetics},
   year={2025},
   note={Submitted}
 }
@@ -237,6 +261,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Corresponding Author:** Youngkyu Shim, M.D.
 **Institution:** Korea University Ansan Hospital, Korea University College of Medicine
 **Email:** ykshim2013@gmail.com
+**ORCID:** 0000-0002-3414-4702
 
 ## 🙏 Acknowledgments
 
@@ -254,4 +279,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Keywords:** FBXO11, neurodevelopmental disorder, protein stability, variant effect prediction, AlphaFold3, FoldX, Rosetta, molecular dynamics, computational framework
+**Keywords:** FBXO11, protein stability, missense variants, neurodevelopmental disorder, AlphaFold3, computational structural biology, SCF ubiquitin ligase, variant pathogenicity

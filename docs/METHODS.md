@@ -22,18 +22,18 @@ Pathogenic variants were identified through systematic search of multiple clinic
 - **ClinVar Database**: Accessed September 2025, filtered for FBXO11 (Gene ID: 80317) missense variants classified as "Pathogenic" or "Likely Pathogenic" with review status ≥1 star
 - **Published Literature**: Comprehensive PubMed search using terms "FBXO11 AND (pathogenic OR mutation OR variant)" covering publications from 2018–2025
 - **Clinical Case Reports**: Manual extraction from Gregor et al. (2018), Gregor et al. (2022), and Gripp et al. (2021)
-- **Patient Variant**: De novo variant A486P (c.1456G>C) identified in the present study
 
 **Inclusion Criteria:**
 - Documented de novo occurrence OR cosegregation with disease in affected families
 - Clinical phenotype consistent with FBXO11 neurodevelopmental disorder
 - Missense variants only (nonsense, frameshift, and splice-site variants excluded)
 - Absence from gnomAD v4.1 population database or allele frequency <0.0001
+- Published in peer-reviewed literature or ClinVar with expert review
 
 **Validation Statistics:**
-- Total pathogenic variants: 24
-- Literature-confirmed with genotype-phenotype data: 22/24 (92%)
-- De novo confirmed: 20/24 (83%)
+- Total pathogenic variants: 23
+- Literature-confirmed with genotype-phenotype data: 22/23 (96%)
+- De novo confirmed: 21/23 (91%)
 
 ### 1.2 Benign Variant Selection
 
@@ -41,7 +41,7 @@ Due to extreme evolutionary constraint of FBXO11 (pLI=1.0, o/e=0.08), naturally 
 
 **Tier 1: ClinVar-Verified Benign Variants (n=6)**
 - Classification: "Benign" or "Likely Benign" with ≥2-star review status and no conflicting interpretations
-- Examples: A112V (VCV000571392.6), T126S, P150A, D175G, Y200F, A250V
+- Examples: A112V, S831G, M820V, D175G, T126S, Q50P
 
 **Tier 2: Computationally Designed Conservative Substitutions (n=15)**
 
@@ -54,7 +54,7 @@ Following precedent for constrained disease genes, we designed conservative subs
 
 ### 1.3 Normal SKP1 Binding Pathogenic Variants
 
-A critical subset of 10 pathogenic variants was previously characterized by Gregor et al. (2022) as retaining normal SKP1 binding capacity in co-immunoprecipitation assays despite showing reduced protein abundance, cytoplasmic aggregation, nuclear exclusion, and clear clinical pathogenicity. These variants (Q156R, R138S, Y506C, I538V, T623R, S840P, A892D, P905R, D910G, A486P) allow evaluation of binding-independent destabilization mechanisms. Notably, none reside within the F-box domain (residues 72-120), potentially explaining preserved binding despite predicted instability.
+A critical subset of 10 pathogenic variants was previously characterized by Gregor et al. (2022) as retaining normal SKP1 binding capacity in co-immunoprecipitation assays despite showing reduced protein abundance, cytoplasmic aggregation, nuclear exclusion, and clear clinical pathogenicity. These variants (R138G, R138S, Q156R, Y506C, I538V, T623R, S840P, A892D, P905R, D910G) allow evaluation of binding-independent destabilization mechanisms. Notably, none reside within the F-box domain (residues 72-120), potentially explaining preserved binding despite predicted instability.
 
 ## 2. AlphaFold3 Structure Prediction
 
@@ -80,7 +80,7 @@ Three structurally diverse seeds were selected from the 5 ranked predictions bas
 - **Monomer**: rank_0 (pLDDT 84.2), rank_3 (pLDDT 81.7, RMSD 22.3 Å), rank_4 (pLDDT 80.9, RMSD 19.1 Å)
 - **Complex**: rank_001 (pLDDT 81.4), rank_003 (pLDDT 78.2, RMSD 21.7 Å), rank_005 (pLDDT 77.1, RMSD 19.8 Å)
 
-All 45 variant positions showed pLDDT >70, with 38/45 (84%) showing pLDDT >80.
+All 44 variant positions showed pLDDT >70, with 37/44 (84%) showing pLDDT >80.
 
 ### 2.3 Structural Quality Assessment
 
@@ -104,14 +104,14 @@ The multi-seed approach captures structural uncertainty and context-dependent st
 - AlphaFold3 confidence metrics guide seed selection
 - Structural diversity ensures sampling of conformational space
 
-**System Matrix:** 46 variants (45 missense + wildtype) × 3 seeds × 2 contexts = 276 systems (FoldX); 45 variants × 3 seeds × 2 contexts = 270 systems (Rosetta, WT-to-WT undefined).
+**System Matrix:** 45 variants (44 missense + wildtype) × 3 seeds × 2 contexts = 270 systems (FoldX); 44 variants × 3 seeds × 2 contexts = 264 systems (Rosetta, WT→WT undefined).
 
 ## 3. FoldX Computational Stability Analysis
 
 ### 3.1 FoldX Methodology
 
 **Software:** FoldX version 5.1 (academic license, https://foldxsuite.crg.eu/)
-**Platform:** Linux (Ubuntu 22.04 LTS), 60 CPU cores
+**Platform:** Apple Mac Studio (macOS; Apple M4 Max, 16 cores, 64 GB RAM)
 
 **Workflow:**
 1. **Structure Preparation**: RepairPDB optimizes side-chain conformations and hydrogen bonding using Dunbrack 2010 rotamer library
@@ -122,10 +122,10 @@ The multi-seed approach captures structural uncertainty and context-dependent st
 
 ### 3.2 FoldX Dataset
 
-- Total systems analyzed: 276
+- Total systems analyzed: 270
 - Replicates per system: 10
-- Total ΔΔG measurements: 16,560 individual calculations
-- Computational time: ~23 hours (parallelized across 60 cores)
+- Total ΔΔG measurements: 16,200 individual calculations
+- Computational time: ~22 hours (parallelized across 16 cores)
 
 **PositionScan Details:** Generates ΔΔG for all 20 amino acids per iteration; only target mutation value extracted for analysis.
 
@@ -134,7 +134,7 @@ The multi-seed approach captures structural uncertainty and context-dependent st
 ### 4.1 Rosetta Methodology
 
 **Software:** Rosetta 2023.49 (academic license, https://www.rosettacommons.org/)
-**Platform:** Linux (Ubuntu 22.04 LTS), 60 CPU cores
+**Platform:** Apple Mac Studio (macOS; Apple M4 Max, 16 cores, 64 GB RAM)
 
 **Protocol:** Cartesian_ddg performs local backbone and side-chain relaxation in Cartesian space (vs torsion space), providing accurate stability predictions for loop regions, main-chain perturbations (e.g., proline substitutions), and structured cores with rigid geometry.
 
@@ -147,10 +147,10 @@ The multi-seed approach captures structural uncertainty and context-dependent st
 
 ### 4.2 Rosetta Dataset
 
-- Total systems analyzed: 270 (WT-to-WT undefined)
+- Total systems analyzed: 264 (WT-to-WT undefined)
 - Replicates per system: 10
-- Total ΔΔG measurements: 2,700
-- Computational time: ~68 hours (parallelized across 60 cores)
+- Total ΔΔG measurements: 7,920 individual calculations
+- Computational time: ~66 hours (parallelized across 16 cores)
 
 ## 5. Molecular Dynamics Simulations
 
@@ -230,15 +230,15 @@ Standard GROMACS analysis tools used to calculate:
 - 0.5 ≤ |ρ| < 0.7: Moderate correlation
 - |ρ| ≥ 0.7: Strong correlation
 
-Correlation analysis performed on overall dataset (n=270 systems) and normal-binding pathogenic subset (n=10 variants).
+Correlation analysis performed on variant-level data (n=88 variant-context pairs for Rosetta, n=90 for FoldX including wildtype) and normal-binding pathogenic subset (n=10 variants).
 
 ### 6.4 Classification Performance Analysis
 
-**ROC Analysis:** Receiver operating characteristic curves generated for FoldX ΔΔG, Rosetta ΔΔG, and combined logistic regression model. AUC (area under curve) quantifies discriminatory power.
+**ROC Analysis:** Receiver operating characteristic curves generated for FoldX ΔΔG, Rosetta ΔΔG, and combined logistic regression model using variant-level data (n=88 variant-context pairs: 46 pathogenic, 42 benign, excluding wildtype). AUC (area under curve) quantifies discriminatory power, with 95% confidence intervals calculated via DeLong's method.
 
-**Precision-Recall Analysis:** With 53.3% pathogenic prevalence (144/270 systems), precision-recall curves provide balanced performance metric accounting for class imbalance.
+**Precision-Recall Analysis:** With ~52% pathogenic prevalence (46/88 variant-context pairs), precision-recall curves provide balanced performance metric accounting for class distribution.
 
-**Threshold Selection:** Youden's J statistic (J = Sensitivity + Specificity - 1) used to identify optimal ΔΔG thresholds balancing true positive and true negative rates. Additionally, fixed threshold of 1.0 kcal/mol analyzed based on literature precedent for protein stability prediction.
+**Threshold Selection:** Youden's J statistic (J = Sensitivity + Specificity - 1) used to identify optimal ΔΔG thresholds balancing true positive and true negative rates. Threshold analysis performed across ΔΔG values from 0.5 to 3.0 kcal/mol, with fixed thresholds of 1.0 and 2.0 kcal/mol analyzed based on literature precedent for protein stability prediction.
 
 ## 7. Software and Computational Environment
 
@@ -254,18 +254,18 @@ Correlation analysis performed on overall dataset (n=270 systems) and normal-bin
 
 **Cloud Infrastructure (MD Simulations):** NVIDIA A100 GPU (40 GB HBM2)
 
-**Local Workstation (Analysis):** Apple M4 Max (16 cores, 64 GB RAM)
+**Local Workstation (Analysis):** Apple Mac Studio (M4 Max, 16 cores, 64 GB RAM)
 
 ### 7.3 Computational Resources
 
 | Task | Platform | CPU/GPU | Wall Time | Storage |
 |------|----------|---------|-----------|---------|
 | AlphaFold3 prediction | Server | N/A | ~30 min/run | 500 MB |
-| FoldX analysis (276 systems) | Cloud | 60 cores | 23 hours | 15 GB |
-| Rosetta analysis (270 systems) | Cloud | 60 cores | 68 hours | 25 GB |
+| FoldX analysis (270 systems) | Local | M4 Max (16 cores) | 22 hours | 14 GB |
+| Rosetta analysis (264 systems) | Local | M4 Max (16 cores) | 66 hours | 24 GB |
 | MD simulations (15 trajectories) | Cloud | A100 GPU | 60 hours | 55 GB |
 | Trajectory analysis | Local | M4 Max | 8 hours | 5 GB |
-| **Total** | - | - | **~159 hours** | **~100 GB** |
+| **Total** | - | - | **~156 hours** | **~98 GB** |
 
 ## 8. Quality Control
 
@@ -295,9 +295,9 @@ Correlation analysis performed on overall dataset (n=270 systems) and normal-bin
 
 ### 9.2 Data Availability
 
-**Supplementary Table S1 (Excel):** Complete raw FoldX and Rosetta ΔΔG results for all systems with columns for Variant, Seed, Context, Classification, ΔΔG values (10 replicates per method), and Statistics
+**Supplementary Table S1 (Excel):** AlphaFold3 structural quality metrics for all 44 variants including pLDDT scores, RMSD values, and confidence categories for monomer and complex models
 
-**Supplementary Table S2 (Excel):** Complete quantitative data for 10 pathogenic variants with experimentally confirmed normal SKP1 binding (mean ± SD across 3 structural seeds)
+**Supplementary Table S2 (Excel):** Complete variant dataset with FoldX and Rosetta ΔΔG values for all 44 variants analyzed across 3 structural seeds and 2 biological contexts (monomer and complex)
 
 **AlphaFold3 Structures:** Available upon reasonable request (PDB format, ~500 MB total)
 
