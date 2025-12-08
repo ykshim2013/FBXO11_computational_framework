@@ -16,7 +16,7 @@ Computational framework for structural stability analysis in *FBXO11* missense v
 3. Department of Convergence Medicine, College of Medicine, Korea University, Seoul, Republic of Korea
 4. Zebrafish Translational Medical Research Center, Korea University, Ansan, Republic of Korea
 
-**Journal:** PLOS Genetics (submitted)
+**Journal:** will be submitted
 
 ## 🔬 Overview
 
