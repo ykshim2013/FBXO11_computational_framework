@@ -16,7 +16,7 @@ Computational framework for structural stability analysis in *FBXO11* missense v
 3. Department of Convergence Medicine, College of Medicine, Korea University, Seoul, Republic of Korea
 4. Zebrafish Translational Medical Research Center, Korea University, Ansan, Republic of Korea
 
-**Journal:** In submition
+**Journal:** Scientific Reports (submitted)
 
 ## 🔬 Overview
 
@@ -246,7 +246,7 @@ If you use this computational framework, please cite:
          missense variants: Testing the hypothesis of binding-independent
          destabilization as a pathogenic mechanism},
   author={Shim, Youngkyu and Kang, Eungu and Kim, Suhyun},
-  journal={PLOS Genetics},
+  journal={Scientific Reports},
   year={2025},
   note={Submitted}
 }
