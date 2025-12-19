@@ -8,7 +8,7 @@ Computational framework for structural stability analysis in *FBXO11* missense v
 
 **Title:** Computational framework for structural stability analysis in FBXO11 missense variants: Testing the hypothesis of binding-independent destabilization as a pathogenic mechanism
 
-**Authors:** YK Shim
+**Authors:** YK Shim and others
 
 **Journal:** submitted
 
