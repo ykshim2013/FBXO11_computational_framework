@@ -8,15 +8,9 @@ Computational framework for structural stability analysis in *FBXO11* missense v
 
 **Title:** Computational framework for structural stability analysis in FBXO11 missense variants: Testing the hypothesis of binding-independent destabilization as a pathogenic mechanism
 
-**Authors:** Youngkyu Shim¹*, Eungu Kang², Suhyun Kim³⁴
+**Authors:** YK Shim
 
-**Affiliations:**
-1. Division of Pediatric Neurology, Department of Pediatrics, Korea University Ansan Hospital, Korea University College of Medicine, Ansan, Republic of Korea
-2. Division of Medical Genetics, Department of Pediatrics, Korea University Ansan Hospital, Korea University College of Medicine, Ansan, Republic of Korea
-3. Department of Convergence Medicine, College of Medicine, Korea University, Seoul, Republic of Korea
-4. Zebrafish Translational Medical Research Center, Korea University, Ansan, Republic of Korea
-
-**Journal:** Scientific Reports (submitted)
+**Journal:** submitted
 
 ## 🔬 Overview
 
