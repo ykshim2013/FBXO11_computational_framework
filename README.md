@@ -239,10 +239,7 @@ If you use this computational framework, please cite:
   title={Computational framework for structural stability analysis in FBXO11
          missense variants: Testing the hypothesis of binding-independent
          destabilization as a pathogenic mechanism},
-  author={Shim, Youngkyu and Kang, Eungu and Kim, Suhyun},
-  journal={Scientific Reports},
-  year={2025},
-  note={Submitted}
+  other information will be updated soon
 }
 ```
 
