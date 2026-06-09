@@ -2,15 +2,23 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Computational framework for structural stability analysis in *FBXO11* missense variants: Testing the hypothesis of binding-independent destabilization as a pathogenic mechanism.
+Computational stability analysis suggesting binding-independent destabilization in pathogenic *FBXO11* variants.
 
 ## 📄 Publication
 
-**Title:** Computational framework for structural stability analysis in FBXO11 missense variants: Testing the hypothesis of binding-independent destabilization as a pathogenic mechanism
+**Title:** Computational stability analysis suggests binding-independent destabilization in pathogenic FBXO11 variants
 
-**Authors:** YK Shim and others
+**Authors:** Youngkyu Shim¹,*, Eungu Kang², Suhyun Kim³,⁴
 
-**Journal:** submitted
+**Affiliations:**
+1. Division of Pediatric Neurology, Department of Pediatrics, Korea University Ansan Hospital, Korea University College of Medicine, Ansan, Gyeonggi-do, Republic of Korea
+2. Division of Medical Genetics, Department of Pediatrics, Korea University Ansan Hospital, Korea University College of Medicine, Ansan, Gyeonggi-do, Republic of Korea
+3. Department of Convergence Medicine, College of Medicine, Korea University, Seoul, Republic of Korea
+4. Zebrafish Translational Medical Research Center, Korea University, Ansan, Gyeonggi-do, Republic of Korea
+
+**Journal:** *Scientific Reports* (accepted, 2026)
+
+**Manuscript:** [docs/MANUSCRIPT.md](docs/MANUSCRIPT.md) · [docs/MANUSCRIPT.docx](docs/MANUSCRIPT.docx)
 
 ## 🔬 Overview
 
@@ -235,11 +243,20 @@ Among 10 pathogenic variants with experimentally confirmed normal SKP1 binding:
 If you use this computational framework, please cite:
 
 ```bibtex
+<<<<<<< HEAD
 @article{shim2025fbxo11,
   title={Computational framework for structural stability analysis in FBXO11
          missense variants: Testing the hypothesis of binding-independent
          destabilization as a pathogenic mechanism},
   other information will be updated soon
+=======
+@article{shim2026fbxo11,
+  title={Computational stability analysis suggests binding-independent
+         destabilization in pathogenic FBXO11 variants},
+  author={Shim, Youngkyu and Kang, Eungu and Kim, Suhyun},
+  journal={Scientific Reports},
+  year={2026}
+>>>>>>> dea74bb (Add accepted manuscript and update publication status)
 }
 ```
 
