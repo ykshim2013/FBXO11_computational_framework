@@ -165,46 +165,7 @@ Then analyze the trajectory:
 
 See [`docs/METHODS.md`](docs/METHODS.md) Section 5 for detailed protocol.
 
-## 📊 Key Results
-
-### Computational Stability Predictions
-
-| Method | Pathogenic ΔΔG | Benign ΔΔG | p-value | Cohen's d |
-|--------|----------------|------------|---------|-----------|
-| **FoldX** | 1.86 ± 3.63 kcal/mol (median±IQR) | 0.54 ± 1.76 kcal/mol | 1.85×10⁻³ | 0.50 |
-| **Rosetta** | 6.85 ± 9.28 kcal/mol (mean±SD) | 1.31 ± 2.91 kcal/mol | 2.39×10⁻⁴ | 0.78 |
-
-- **FoldX-Rosetta correlation:** Spearman's ρ = 0.60, Pearson's r = 0.74
-- **Context independence:** No significant monomer vs complex difference (p = 0.94)
-- **Normal-binding pathogenic subset:** 9/10 (90%) exceeded 1.0 kcal/mol threshold by at least one method
-
-### Classification Performance
-
-| Model | AUC (95% CI) | Sensitivity | Specificity |
-|-------|--------------|-------------|-------------|
-| FoldX | 0.68 (0.52–0.82) | - | - |
-| Rosetta | 0.68 (0.53–0.83) | - | - |
-| Combined | 0.69 (0.52–0.84) | 46% | 93% |
-
-**Note:** Modest discriminatory power precludes clinical diagnostic use; framework suitable for mechanistic hypothesis generation.
-
-### Molecular Dynamics Results
-
-| Metric | Pathogenic | Benign/WT | Interpretation |
-|--------|------------|-----------|----------------|
-| **RMSD (0-20 ns)** | 3.6 ± 1.4 nm | 2.6-2.9 nm | Increased structural deviation |
-| **RMSF (peak regions)** | 1.05-1.20-fold increase | Baseline | Modest flexibility increase |
-| **Discrimination time** | ~5 ns | - | Early temporal differences |
-
-**Important:** 20 ns simulations are exploratory; equilibrium assessment requires 100-300 ns.
-
-### Normal-Binding Pathogenic Variants
-
-Among 10 pathogenic variants with experimentally confirmed normal SKP1 binding:
-- **9/10 (90%)** exceeded 1.0 kcal/mol threshold by at least one method
-- **Mean FoldX ΔΔG:** 1.77 ± 1.15 kcal/mol
-- **Mean Rosetta ΔΔG:** 3.83 ± 4.43 kcal/mol
-- Supports binding-independent destabilization hypothesis
+For all reported results, statistical comparisons, ROC analyses, MD trajectories, and the normal-binding subgroup analysis, see the published article and its supplementary materials. This repository provides the methodology and scripts required to reproduce the computational pipeline; the article is the canonical source of the numerical results.
 
 ## 📦 Data Availability
 
