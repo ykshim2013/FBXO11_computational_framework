@@ -18,8 +18,6 @@ Computational stability analysis suggesting binding-independent destabilization 
 
 **Journal:** *Scientific Reports* (accepted, 2026)
 
-**Manuscript:** [docs/MANUSCRIPT.md](docs/MANUSCRIPT.md) · [docs/MANUSCRIPT.docx](docs/MANUSCRIPT.docx)
-
 ## 🔬 Overview
 
 This repository provides **complete computational protocols** and **example scripts** for evaluating the pathogenicity of *FBXO11* missense variants through multi-method stability analysis.
