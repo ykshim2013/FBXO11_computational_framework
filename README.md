@@ -34,7 +34,7 @@ This repository provides **complete computational protocols** and **example scri
 - **Variants analyzed:** 44 (23 pathogenic, 21 benign)
 - **Structural conformations:** 3 AlphaFold3 seeds per variant
 - **Biological contexts:** 2 (monomer, FBXO11-SKP1 complex)
-- **Total systems:** 264 Rosetta / 270 FoldX (44 variants × 3 seeds × 2 contexts)
+- **Total systems:** 270 FoldX (45 incl. WT × 3 seeds × 2 contexts) / 264 Rosetta (44 × 3 × 2; WT→WT undefined)
 - **MD simulations:** 5 variants × 3 replicates × 20 ns = 300 ns total
 
 ## 📁 Repository Structure
@@ -55,8 +55,11 @@ FBXO11_computational_framework/
 │       ├── run_md_simulation.sh         # MD simulation protocol
 │       └── analyze_trajectory.sh        # Trajectory analysis
 │
-└── data/
-    └── variant_list.txt        # List of analyzed variants
+├── data/
+│   └── variant_list.txt        # Final 44-variant classification list
+│
+└── results/
+    └── MD_summary.md           # MD summary statistics (exploratory)
 ```
 
 ## 🚀 Quick Start
@@ -103,7 +106,7 @@ vi scripts/gromacs/run_md_simulation.sh    # Set GMX path
 
 Generate structural ensemble using [AlphaFold3 Server](https://alphafoldserver.com):
 
-- Submit FBXO11 sequence (UniProt Q86XK2, 919 amino acids)
+- Submit FBXO11 sequence (UniProt Q86XK2, 927 amino acids)
 - Generate both monomer and FBXO11-SKP1 complex structures
 - Select 3 diverse conformational seeds based on pairwise RMSD (>19 Å separation)
 
@@ -170,11 +173,14 @@ For all reported results, statistical comparisons, ROC analyses, MD trajectories
 ### Included in Repository
 - Complete computational protocols (Supplementary Methods)
 - Example analysis scripts for FoldX, Rosetta, and GROMACS
-- Variant classification list
+- Final 44-variant classification list
+- MD summary statistics (exploratory; [`results/MD_summary.md`](results/MD_summary.md))
 
 ### Manuscript Supplementary Materials
-- **S1 Table:** AlphaFold3 structural quality metrics
-- **S2 Table:** Complete variant dataset with FoldX and Rosetta ΔΔG values
+- **S1 Table:** Complete variant dataset with clinical classifications and FoldX/Rosetta ΔΔG values
+- **S2 Table:** AlphaFold3 structural quality metrics
+
+The full per-variant FoldX and Rosetta ΔΔG values are reported in Supplementary Table S1 of the published article and are intentionally not duplicated here.
 
 ### Available Upon Request
 - MD trajectory files (~55 GB total)

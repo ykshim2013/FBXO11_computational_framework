@@ -1,66 +1,75 @@
 # FBXO11 Variant Classification List
-# Part of FBXO11 Computational Framework
+# FBXO11 Computational Framework
+# Reference: Shim et al., Scientific Reports (2026)
 #
-# Format: Variant, Classification, Clinical Source
-# Total: 45 variants (24 pathogenic, 21 benign)
-
-# PATHOGENIC VARIANTS (n=24)
-# Literature-confirmed with genotype-phenotype data: 22/24 (92%)
-
-K81N,pathogenic,Gregor et al. 2022
-R84W,pathogenic,Gregor et al. 2018
-K96R,pathogenic,Gregor et al. 2022
-A112V,benign,ClinVar VCV000571392.6
-K135R,pathogenic,Gregor et al. 2022
-R138G,pathogenic,Present study
-R138S,pathogenic,Gregor et al. 2022
-Q156R,pathogenic,Gregor et al. 2022
-I300V,benign,Conservative substitution
-A486P,pathogenic,Present study (patient variant)
-Y506C,pathogenic,Gregor et al. 2022
-I538V,pathogenic,Gregor et al. 2022
-T623R,pathogenic,Gregor et al. 2022
-G667R,pathogenic,Gregor et al. 2022
-R680Q,pathogenic,Gregor et al. 2022
-G743R,pathogenic,Gregor et al. 2022
-S840P,pathogenic,Gregor et al. 2022
-A892D,pathogenic,Gregor et al. 2022
-P905R,pathogenic,Gregor et al. 2022
-D910G,pathogenic,Gregor et al. 2022
-G421R,pathogenic,Gregor et al. 2022
-
-# BENIGN VARIANTS (n=21)
-# ClinVar-verified (n=6), Conservative computational controls (n=15)
-
-# Tier 1: ClinVar-Verified Benign
-A112V,benign,ClinVar Likely Benign (VCV000571392.6)
-T126S,benign,ClinVar Benign
-P150A,benign,ClinVar Benign
-D175G,benign,ClinVar Benign
-Y200F,benign,ClinVar Benign
-A250V,benign,ClinVar Benign
-
-# Tier 2: Conservative Computational Controls
-I300V,benign,Conservative substitution (hydrophobic→hydrophobic)
-L325I,benign,Conservative substitution (hydrophobic→hydrophobic)
-V350I,benign,Conservative substitution (hydrophobic→hydrophobic)
-A400S,benign,Conservative substitution (small→small polar)
-S450T,benign,Conservative substitution (polar→polar)
-T500S,benign,Conservative substitution (polar→polar)
-N550D,benign,Conservative substitution (polar→polar)
-Q600E,benign,Conservative substitution (polar→polar)
-V650I,benign,Conservative substitution (hydrophobic→hydrophobic)
-I700V,benign,Conservative substitution (hydrophobic→hydrophobic)
-A750S,benign,Conservative substitution (small→small polar)
-S800T,benign,Conservative substitution (polar→polar)
-T850S,benign,Conservative substitution (polar→polar)
-V900I,benign,Conservative substitution (hydrophobic→hydrophobic)
-WT,wildtype,Reference
-
+# Final analyzed dataset: 44 missense variants (23 pathogenic, 21 benign) + wildtype reference.
+# Format: Variant, Classification, Source
+#
 # Notes:
-# - All variants analyzed in 3 structural conformations (AlphaFold3 seeds)
-# - Two biological contexts: monomer and FBXO11-SKP1 complex
-# - Total systems: 45 variants × 3 seeds × 2 contexts = 270 systems
-# - Pathogenic variants: 92% literature-confirmed
-# - Benign controls: 6 ClinVar-verified + 15 conservative substitutions
-# - Normal-binding subset: 10 pathogenic variants retain SKP1 binding (Gregor et al. 2022)
+#   - Each variant was analyzed in 3 AlphaFold3 conformational seeds and 2 biological
+#     contexts (FBXO11 monomer and FBXO11-SKP1 complex).
+#   - System totals: 270 FoldX (45 incl. WT x 3 seeds x 2 contexts);
+#     264 Rosetta (44 x 3 x 2; WT->WT is undefined).
+#   - Pathogenic variants were curated from ClinVar and published literature
+#     (Gregor et al. 2018, 2022; Gripp et al. 2021).
+#   - Per-variant FoldX and Rosetta ddG values are reported in the article's
+#     Supplementary Table S1 and are NOT duplicated here (data availability).
+
+# == PATHOGENIC / LIKELY PATHOGENIC (n=23) ==
+A892D,pathogenic,ClinVar/literature
+D910G,pathogenic,ClinVar/literature
+D910V,pathogenic,ClinVar/literature
+G421R,pathogenic,ClinVar/literature
+G549R,pathogenic,ClinVar/literature
+G550R,pathogenic,ClinVar/literature
+H650P,pathogenic,ClinVar/literature
+I538V,pathogenic,ClinVar/literature
+K135R,pathogenic,ClinVar/literature
+K715N,pathogenic,ClinVar/literature
+M709V,pathogenic,ClinVar/literature
+N679S,pathogenic,ClinVar/literature
+P905R,pathogenic,ClinVar/literature
+Q156R,pathogenic,ClinVar/literature
+R138G,pathogenic,ClinVar/literature
+R138S,pathogenic,ClinVar/literature
+R185H,pathogenic,ClinVar/literature
+S840P,pathogenic,ClinVar/literature
+T502P,pathogenic,ClinVar/literature
+T578R,pathogenic,ClinVar/literature
+T623R,pathogenic,ClinVar/literature
+Y206C,pathogenic,ClinVar/literature
+Y506C,pathogenic,ClinVar/literature
+
+# == BENIGN / LIKELY BENIGN (n=21) ==
+# Tier 1: ClinVar-verified benign (n=6)
+D175G,benign,ClinVar verified
+M820V,benign,ClinVar verified
+P48L,benign,ClinVar verified
+Q50P,benign,ClinVar verified
+S831G,benign,ClinVar verified
+T126S,benign,ClinVar verified
+
+# Tier 2: Computationally-designed conservative controls (n=15)
+A250V,benign,Computational control
+E700Q,benign,Computational control
+F850Y,benign,Computational control
+G500A,benign,Computational control
+H450N,benign,Computational control
+H600N,benign,Computational control
+I300V,benign,Computational control
+I400V,benign,Computational control
+I750V,benign,Computational control
+P150A,benign,Computational control
+P350A,benign,Computational control
+Q100E,benign,Computational control
+Q50E,benign,Computational control
+R800K,benign,Computational control
+Y200F,benign,Computational control
+
+# == WILDTYPE REFERENCE ==
+WT,wildtype,Reference (FoldX context only)
+
+# == NORMAL SKP1-BINDING PATHOGENIC SUBSET (n=10) ==
+# Pathogenic variants experimentally shown to retain normal SKP1 binding
+# (Gregor et al. 2022), used to test binding-independent destabilization:
+#   R138G, R138S, Q156R, Y506C, I538V, T623R, S840P, A892D, P905R, D910G

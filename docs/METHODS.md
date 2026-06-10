@@ -62,7 +62,7 @@ A critical subset of 10 pathogenic variants was previously characterized by Greg
 ### 2.1 Model Generation
 
 Wild-type FBXO11 structural models were generated using AlphaFold3 Server (https://alphafoldserver.com) accessed August–September 2025 in two biological contexts:
-- **Monomer**: FBXO11 alone (UniProt Q86XK2, 919 amino acids)
+- **Monomer**: FBXO11 alone (UniProt Q86XK2, 927 amino acids)
 - **Complex**: FBXO11-SKP1 heterodimer with human SKP1 (UniProt P63208, 163 amino acids)
 
 AlphaFold3 generated 5 ranked predictions per context with default settings (3 recycle iterations, full MSA depth, no custom templates).
@@ -92,8 +92,8 @@ All 44 variant positions showed pLDDT >70, with 37/44 (84%) showing pLDDT >80.
 | N-terminal | 1-71 | 62.3 | 8% | Low confidence |
 | F-box | 72-120 | 88.7 | 78% | High confidence |
 | Linker | 121-350 | 71.4 | 15% | Moderate confidence |
-| C-terminal | 351-919 | 81.2 | 42% | Good confidence |
-| **Overall** | **1-919** | **77.8** | **35%** | **Mixed confidence** |
+| C-terminal | 351-927 | 81.2 | 42% | Good confidence |
+| **Overall** | **1-927** | **77.8** | **35%** | **Mixed confidence** |
 
 The large whole-protein RMSD values (19-22 Å) likely include substantial contributions from low-confidence regions (N-terminal, portions of linker) rather than reflecting genuine conformational diversity. However, variant-induced ΔΔG changes are calculated relative to wildtype within the same seed, minimizing systematic bias from these regions.
 
@@ -199,7 +199,7 @@ Standard GROMACS analysis tools used to calculate:
 
 **Variant Selection Rationale:** G421R (glycine-to-charged substitution), D910G (charge loss and flexibility increase), R138G (N-terminal destabilization), I300V (conservative benign control), WT (reference baseline).
 
-**Important Limitations:** 20 ns simulation time is insufficient for full equilibration of 919-residue protein (typical requirement: 100-300 ns). These simulations serve as exploratory methodological demonstrations generating testable hypotheses.
+**Important Limitations:** 20 ns simulation time is insufficient for full equilibration of 927-residue protein (typical requirement: 100-300 ns). These simulations serve as exploratory methodological demonstrations generating testable hypotheses.
 
 ## 6. Statistical Analysis
 
@@ -282,7 +282,7 @@ Correlation analysis performed on variant-level data (n=88 variant-context pairs
 
 **Energy Drift Monitoring:** Verify total energy drift <0.5% over 20 ns, temperature stable within ±5 K of 310 K, and pressure fluctuation within ±200 bar of 1.0 bar target.
 
-**RMSD Convergence:** Visual inspection of RMSD vs time plots for plateau behavior. Note: 20 ns may be insufficient for full equilibration of 919-residue protein.
+**RMSD Convergence:** Visual inspection of RMSD vs time plots for plateau behavior. Note: 20 ns may be insufficient for full equilibration of 927-residue protein.
 
 ## 9. Reproducibility Information
 
